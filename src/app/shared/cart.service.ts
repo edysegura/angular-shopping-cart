@@ -7,22 +7,22 @@ import { Observable } from 'rxjs';
 })
 export class CartService {
 
-  items = [];
+  items: any = [];
 
   constructor(
     private http: HttpClient
   ) {}
 
-  addToCart(product) {
+  addToCart(product: any) {
     this.items.push(product);
   }
 
-  getItems() {
+  getItems(): any[] {
     return this.items;
   }
 
   clearCart() {
-    this.items = [];
+    this.items.length = 0;
     return this.items;
   }
 
