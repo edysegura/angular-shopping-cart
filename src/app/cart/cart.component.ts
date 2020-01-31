@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { CartService } from '../shared/cart.service';
 
@@ -10,8 +10,8 @@ import { CartService } from '../shared/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  items = [];
-  checkoutForm;
+  items: any = [];
+  checkoutForm: FormGroup;
 
   constructor(
     private cartService: CartService,
@@ -27,7 +27,7 @@ export class CartComponent implements OnInit {
     this.items = this.cartService.getItems() || [];
   }
 
-  onSubmit(customerData) {
+  onSubmit(customerData: any) {
     console.warn('Your order has been submitted', customerData);
   }
 
